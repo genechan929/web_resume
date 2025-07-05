@@ -91,7 +91,7 @@ The following secrets must be configured in GitHub repository settings:
 |-------------|-------------|
 | `AWS_ACCESS_KEY_ID` | AWS IAM user access key |
 | `AWS_SECRET_ACCESS_KEY` | AWS IAM user secret key |
-| `S3_BUCKET` | S3 bucket name (`genechan.ca`) |
+| `S3_BUCKET` | S3 bucket name |
 | `CLOUDFRONT_DISTRIBUTION_ID` | CloudFront distribution ID |
 
 ### AWS IAM Permissions
