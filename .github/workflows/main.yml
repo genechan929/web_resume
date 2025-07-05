@@ -22,13 +22,14 @@ jobs:
       - name: Deploy static site to S3 bucket
         run: aws s3 sync . s3://genechan.ca --delete 
 
-      - name: Invalidate CloudFront cache
-        uses: reggionick/s3-deploy@v4
-        with:
-          bucket: ${{ secrets.S3_BUCKET }}
-          bucket-region: ${{ secrets.S3_BUCKET_REGION }}
-          dist-id: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
-          invalidation: /
+      - name: Invalidate CloudFront
+        uses: chetan/invalidate-cloudfront-action@v2
+        env:
+          DISTRIBUTION: ${{ secrets.DISTRIBUTION }}
+          PATHS: "/index.html"
+          AWS_REGION: ${{ secrets.S3_BUCKET_REGION }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           delete-removed: true
           no-cache: true
           private: true
