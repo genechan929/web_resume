@@ -1,4 +1,4 @@
-# My Resume Site Architecture
+# genechan.ca Resume Site Architecture
 
 This repository contains a static resume website hosted on AWS with automated deployment via GitHub Actions.
 
@@ -16,7 +16,7 @@ graph TB
     GA -->|sync files| S3[S3 Bucket]
     GA -->|invalidate cache| CF[CloudFront Distribution]
     S3 -->|serves content| CF
-    CF -->|delivers content| Users[End Users]
+    CF -->|delivers content| Users[End Users (genechan.ca)]
     DNS[Route 53 / DNS Provider] -->|points to| CF
     
     subgraph "AWS Infrastructure"
@@ -70,7 +70,7 @@ graph TB
   - Edge locations for faster content delivery
 
 ### 5. DNS Configuration
-- **Purpose**: Domain name resolution
+- **Purpose**: Domain name resolution for genechan.ca
 - **Setup**: DNS A/CNAME record pointing to CloudFront distribution
 
 ## Deployment Flow
