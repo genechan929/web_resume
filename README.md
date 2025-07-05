@@ -13,7 +13,7 @@ graph TB
     Dev[Developer] -->|git push| GH[GitHub Repository]
     GH -->|triggers| GA[GitHub Actions]
     GA -->|authenticate| AWS[AWS Account]
-    GA -->|sync files| S3[S3 Bucket<br/>genechan.ca]
+    GA -->|sync files| S3[S3 Bucket]
     GA -->|invalidate cache| CF[CloudFront Distribution]
     S3 -->|serves content| CF
     CF -->|delivers content| Users[End Users]
