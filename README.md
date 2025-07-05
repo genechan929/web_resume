@@ -16,7 +16,7 @@ graph TB
     GA -->|sync files| S3[S3 Bucket]
     GA -->|invalidate cache| CF[CloudFront Distribution]
     S3 -->|serves content| CF
-    CF -->|delivers content| Users[End Users (genechan.ca)]
+    CF -->|delivers content| Users[End Users ]
     DNS[Route 53 / DNS Provider] -->|points to| CF
     
     subgraph "AWS Infrastructure"
